@@ -72,10 +72,7 @@ CREATE TABLE
         salary_type TEXT NOT NULL CHECK (salary_type IN ('hourly', 'monthly')),
         work_hours NUMERIC(4, 1) CHECK (work_hours >= 0),
         paid_days INT CHECK (paid_days > 0),
-        days_in_month INT CHECK (
-            days_in_month >= 28
-            AND days_in_month <= 31
-        ),
+        divisor_days INT CHECK (divisor_days > 0),
         amount NUMERIC(15, 2) NOT NULL,
         payslip_id BIGINT NOT NULL,
         contract_id BIGINT NOT NULL,
@@ -89,7 +86,7 @@ CREATE TABLE
             (
                 salary_type = 'monthly'
                 AND paid_days IS NOT NULL
-                AND days_in_month IS NOT NULL
+                AND divisor_days IS NOT NULL
             )
             OR (
                 salary_type = 'hourly'
