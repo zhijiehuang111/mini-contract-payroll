@@ -1,0 +1,15 @@
+[project]
+name = "mini-contract-payroll"
+version = "0.1.0"
+description = "A practice contract payroll system: pay runs, prorated salaries, payslips."
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.10",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
