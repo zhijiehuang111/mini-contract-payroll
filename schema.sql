@@ -48,6 +48,8 @@ CREATE TABLE
                 'finalized'
             )
         ),
+        started_at TIMESTAMPTZ, -- worker 領走的時間，用來判斷卡住（SPEC 第 6 節）
+        error TEXT, -- 最後一次失敗的原因，成功後清掉
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW (),
         CONSTRAINT uq_pay_runs_period_year_month UNIQUE (period_year, period_month)
     );

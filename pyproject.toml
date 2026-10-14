@@ -3,7 +3,9 @@ name = "mini-contract-payroll"
 version = "0.1.0"
 description = "A practice contract payroll system: pay runs, prorated salaries, payslips."
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "psycopg[binary]>=3.3.6",
+]
 
 [dependency-groups]
 dev = [

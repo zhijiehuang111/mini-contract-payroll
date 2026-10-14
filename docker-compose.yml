@@ -1,0 +1,16 @@
+# 本機練習用的 Postgres，只綁 127.0.0.1。port 用 5435，避開 find-jobs 的 5434
+services:
+  postgres:
+    image: postgres:18
+    container_name: postgres_mini_payroll
+    environment:
+      POSTGRES_USER: payroll
+      POSTGRES_PASSWORD: payroll
+      POSTGRES_DB: payroll
+    ports:
+      - "127.0.0.1:5435:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+volumes:
+  pgdata:
