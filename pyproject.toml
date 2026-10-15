@@ -4,11 +4,14 @@ version = "0.1.0"
 description = "A practice contract payroll system: pay runs, prorated salaries, payslips."
 requires-python = ">=3.14"
 dependencies = [
+    "fastapi>=0.143.1",
     "psycopg[binary]>=3.3.6",
+    "uvicorn>=0.54.0",
 ]
 
 [dependency-groups]
 dev = [
+    "httpx2>=2.13.1",
     "pytest>=9.1.1",
     "ruff>=0.16.10",
 ]
